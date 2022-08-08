@@ -1,0 +1,323 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #111;
+  font-size: 14px;
+  padding: 5px;
+  font-family: Open Sans, sans-serif;
+}
+
+#header,
+#footer,
+#content {
+  width: 95%;
+  max-width: 1200px;
+  min-width: 750px;
+}
+
+#header {
+  background-color: #277ae1;
+  padding: 25px 10px ;
+  color: #fff;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 10px;
+  box-shadow: 5px 2px 10px #333;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+#header h1 {
+  font-size: 22px;
+  text-shadow: 1px 1px 2px #555;
+  margin-left: 2rem;
+}
+
+#footer {
+  background-color: #277ae1;
+  padding: 10px 10px;
+  margin: 0 auto;
+  margin-top: 0px;
+  color: #fff;
+  clear: both;
+  text-align: right;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+#botoes {
+  width: 100%;
+  clear: both;
+  padding-top: 10px;
+}
+
+#botao,
+#botao2,
+#botao3,
+#botao4,
+#botao5,
+#ler,
+#invert {
+  border: 1px solid #277ae1;
+  border-bottom: 1px solid #009;
+  border-right: 1px solid #009;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 10px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #277ae1;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+#botao:hover,
+#botao2:hover,
+#botao3:hover,
+#botao4:hover,
+#botao5:hover,
+#ler:hover,
+#invert:hover {
+  background-color: #5aadf4;
+}
+
+#botao {
+  width: 23%;
+  margin-top: 0;
+  padding: 15px;
+}
+
+#botao2,
+#botao3,
+#botao5 {
+  width: 30%;
+}
+
+#content {
+  margin: 0 auto;
+  background-color: #fff;
+  color: #000;
+  padding: 10px;
+  box-shadow: 5px 0px 10px #333;
+  position: relative;
+  font-size: 12px;
+}
+
+.descricao {
+  margin: 20px;
+  padding-bottom: 20px;
+  color: #5b6266;
+  border-bottom: 1px solid #277ae1;
+  border-top: 1px solid #277ae1;
+}
+
+.descricao h3 {
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+p {
+  font-size: 14px;
+  margin: 10px;
+  word-wrap: break-word;
+}
+
+#upload {
+  width: 50%;
+  border-right: 1px solid #dfdfdf;
+  margin: 10px;
+  padding-top: 0;
+  float: left;
+}
+.campo {
+  
+  margin-top: 3px;
+  padding: 7px;
+  position: relative;
+  width: 98%;
+  font-weight: bold;
+  border-radius: 3px;
+  border: 1px solid #dfdfdf;
+  font-size: 12px;
+  background-color: #efefef;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.campo1 {
+  margin: 3px;
+  padding: 10px;
+}
+
+.campo,
+.campo1 {
+  z-index: 1;
+}
+
+#lateral {
+  padding: 5px;
+  padding-top: 0px;
+  margin: 0;
+  float: right;
+  width: 45%;
+}
+
+#add {
+  padding: 10px;
+  width: 98%;
+  margin-bottom: 10px;
+  border-top: 1px solid #277ae1;
+}
+
+input,
+select {
+  text-transform: uppercase;
+  margin: 1px;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+#qtidade {
+  width: 60%;
+  font-size: 20px;
+  padding: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+.tamanho {
+  width: 5%;
+}
+
+textarea {
+  padding: 5px;
+  font-weight: bold;
+  margin: 5px auto;
+  text-transform: uppercase;
+  border: 1px solid #ccc;
+}
+
+.fechar {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0px 3px;
+  position: absolute;
+  width: auto;
+  top: 0px;
+  right: 0px;
+}
+
+.fechar:hover {
+  color: white;
+  background-color: #277ae1;
+}
+
+#message {
+  position:relative;
+  margin-top: -17px;
+  font-weight: bold;
+  font-size: 14px;
+  
+}
+
+#ajuda {
+  position: absolute;
+  right: 50px;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: -38px;
+  margin-right: -17px;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 3px;
+  z-index: 18;
+  transition: all 0.5s ease;
+}
+
+#ajuda:hover {
+  background-color: #5aadf4;
+
+}
+#help {
+  position: absolute;
+  z-index: 10;
+  display: none;
+  color: #555;
+  padding: 10px;
+  border: solid 1px #999;
+  background-color: #ffffff;
+  right: 1px;
+  top: 0px;
+  height: 700px;
+  width: 500px;
+}
+
+#help h1{
+    text-shadow: none;
+    margin-top: 20px;
+}
+
+ol {
+  list-style-position: inside;
+  margin-left: 10px;
+  word-wrap: break-word;
+}
+.book {
+  width: 40%;
+}
+.titulo {
+  width: 25%;
+}
+
+#ler {
+  width: 92%;
+  padding: 20px;
+  margin: 10px;
+}
+#invert {
+  padding: 7px 7px;
+  width: 18%;
+  height: 94px;
+  text-align: center;
+  margin: 5px;
+}
+
+#colar {
+  width: 90%;
+  height: 150px;
+  font-size: 10px;
+  display: block;
+  margin: 10px;
+}
+#recebe {
+  width: 75%;
+  height: 80px;
+  float: left;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    text-align: center;
+  }

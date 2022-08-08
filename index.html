@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>COMMAREA FORMATTER</title>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/gerador.css" />
+  </head>
+  <body>
+    <!--------- CABEÇALHO -------------->
+    <header id="header">
+      <h1>COMMAREA FORMATTER</h1>
+      <p id="ajuda">AJUDA</p>
+
+      <nav id="help">
+        <h1 style="font-size: 19px">AJUDA</h1>
+        <br />
+        <div style="overflow: auto; height: 630px">
+          <h3>Modo de usar:</h3>
+          <p><strong>Preenchimento Automático</strong></p>
+          <ol>
+            <li>Copie e cole os campos do seu COPYBOOK no campo indicado;</li>
+            <li>Clique no botão CARREGAR;</li>
+            <li>Preencha os valores desejados para cada campo;</li>
+            <li>Clique no botão GERAR COMMAREA. Pronto!</li>
+          </ol>
+
+          <br />
+          <p><strong>Preenchimento manual</strong></p>
+          <ol>
+            <li>Insira a quantidade de campos do COPYBOOK e clique em ADD;</li>
+            <li>
+              Cada uma das caixas carregadas é composta por 3 campos (tipo,
+              tamanho e valor);
+            </li>
+            <li>
+              Selecione, primeiramente, o tipo do campo (X - alfanumérico ou 9 -
+              numérico);
+            </li>
+            <li>No próximo campo, digite o tamanho do campo;</li>
+            <li>
+              Selecione o próximo campo e ele será preenchido automaticamente
+              com espaços (se o tipo for X) ou zeros (se o tipo for 9);
+            </li>
+            <li>Faça o mesmo nas demais caixas e clique em GERAR COMMAREA;</li>
+            <li>
+              A COMMAREA gerada será copiada para o clipboard (CTRL+C)
+              automaticamente.
+            </li>
+            <li>Clique em LIMPAR para resetar todos os campos.</li>
+          </ol>
+          <br />
+          <p><strong>Verificar COMMAREA</strong></p>
+          <ol>
+            <li>
+              Copie e cole os campos do book de entrada no campo indicado;
+            </li>
+            <li>Clique no botão Carregar;</li>
+            <li>
+              Depois que os campos forem gerados, clique no botão 'Limpar
+              Campos'
+            </li>
+            <li>
+              Cole a sua COMMAREA no campo de texto ao lado do botão REVALIDAR.
+            </li>
+            <li>Clique no botão REVALIDAR</li>
+            <li>A COMMAREA será dividida e colocada em seus devidos campos.</li>
+            <li>
+              Pronto! Agora você pode conferir se o layout e a COMMAREA estão de
+              acordo.
+            </li>
+          </ol>
+          <br />
+          <h3>Dicas</h3>
+          <ol>
+            <li>
+              Para facilitar a identificação de cada campo você pode
+              renomeá-los. Basta clicar sobre o nome do campo.
+            </li>
+            <li>
+              Você pode remover e adicionar campos livremente, não há limite de
+              campos.
+            </li>
+          </ol>
+        </div>
+        <br />
+      </nav>
+    </header>
+    <!--------- CORPO PARA CONTEUDO -------------->
+    <div id="content">
+      <!--------- AREA PARA LER BOOK -------------->
+      <div id="upload">
+        <p>Cole seu COPYBOOK aqui e clique em CARREGAR:</p>
+        <p>
+          <textarea id="colar"></textarea>
+          <input
+            type="button"
+            value="Carregar"
+            id="ler"
+            class="button"
+            title="Lê o COPYBOOK e o divide em campos"
+          />
+        </p>
+      </div>
+
+      <!--------- Adicionar campos manualmente -------------->
+      <div id="lateral">
+        <div class="campo1">
+          <p>
+            Para adicionar campos manualmente, digite a quantidade desejada de
+            campos e clique em ADD.
+          </p>
+          <input type="text" id="qtidade" />
+          <input
+            type="button"
+            class="button"
+            value="Add"
+            id="botao"
+            title="Adiciona campos manualmente."
+          />
+        </div>
+      </div>
+
+      <p style="clear: both"></p>
+
+      <!--------- DIV QUE CARREGA OS CAMPOS DINÂMICOS -------------->
+      <div id="add">
+        <p>Os campos serão carregados logo abaixo:</p>
+      </div>
+
+      <!--------- BOTOES: GERAR E LIMPAR -------------->
+      <div id="botoes">
+        <input
+          type="button"
+          value="Gerar Commarea"
+          id="botao2"
+          class="button"
+          title="Cria String/COMMAREA com o valor de todos os campos acima."
+        />
+        <input
+          type="button"
+          value="Limpar Campos"
+          id="botao3"
+          class="button"
+          title="Limpa o conteúdo de todos os campos"
+        />
+        <input
+          type="button"
+          value="Reset"
+          id="botao5"
+          class="button"
+          title="Reseta toda a tela"
+        />
+      </div>
+      <br />
+      <!--------- AREA PARA RECEBER OS DADOS -------------->
+      <p>
+        Sua COMMAREA será gerada aqui, basta copiá-la e realizar seus testes.
+        Viu como é fácil!? <br />
+        Ah! Você também pode colar uma COMMAREA aqui para validar se está de
+        acordo com layout do seu COPYBOOK. (deve ser uma
+        <strong>STRING ÚNICA, SEM QUEBRA DE LINHAS </strong>).
+      </p>
+      <p>
+        <textarea cols="71" id="recebe"></textarea>
+        <input
+          type="button"
+          value="REVALIDAR"
+          id="invert"
+          class="button"
+          title="LÊ O COPYBOOK E GERA OS CAMPOS"
+        />
+      </p>
+      <p>
+        Quatidade de caracteres: <strong><span id="carac">0</span></strong>
+      </p>
+
+      <!--------- DESCRIÇÂO -------------->
+      <div class="descricao">
+        <h3>O que é?</h3>
+        <p>
+          Você pode chamar de Formatador de Commarea COBOL, Gerador de Massa
+          CICS, Copybook Parser ou algo do gênero, mas na real, esse troço vai
+          te ajudar a gerar sua massa de entrada sem que você tenha que ficar
+          contando tamanho de campo.
+        </p>
+        <h3>E pra quê serve?</h3>
+        <p>
+          Imagine que você precisa testar um programa COBOL, seja CICS Online ou
+          BATCH, e precisa preencher a área de entrada ou criar um registro para
+          o seu arquivo "NA MÃO"...
+          <strong>Não! Você está fazendo isso errado!</strong>
+        </p>
+        <p>
+          Com esta ferramenta você pode facilitar muito sua vida triste de
+          desenvolvedor(a) COBOL, na hora de fazer seus testes unitários.
+        </p>
+        <p>
+          Apenas cole seu COPYBOOK, clique no botão CARREGAR e veja a mágica
+          acontecer! Depois é só preencher o que desejar em cada campo gerado e
+          "Voilà", basta pegar sua COMMAREA, ou seu registro, prontinha para o
+          teste.
+        </p>
+        <p>
+          Para mais informaçõe, clique em <strong>AJUDA</strong> (lá em cima).
+        </p>
+        <h3>Enjoy, COBOLEIRO!</h3>
+      </div>
+
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <h1>String/COMMAREA copiada para o clipboard!</h1>
+          <h2>(Isso mesmo, está no seu CRTL + C)</h2>
+        </div>
+      </div>
+    </div>
+
+    <!--------- RODAPÉ -------------->
+    <div id="footer">
+      <p id="diego">OMEGABROTHERS.TECH</p>
+    </div>
+  </body>
+  <script type="text/javascript">
+    ////////////////Fun��o para remover zeros a esquerda//////////////////////////////////////////
+    //String.prototype.startsWith = function(str) {return (this.match("^"+str)==str)}
+    String.prototype.startsWith = function (str) {
+      return this.indexOf(str) == 0;
+    };
+
+    //////////////////////////////////////////////////////////////////////////////////////////////
+    var contCampo = 1;
+    $(document).ready(function () {
+      $("#colar").focus();
+      $("#diego").html("Omegabrothers.tech");
+      //////////////////////////////////////////////////////////////////////////////////////////////
+      $("#span").click(function () {
+        $("#lateral").slideDown();
+      });
+      /////////////Inserir campos ao clicar no bot�o////////////////////////////////////////////////
+      $("#botao").click(function () {
+        var i = parseInt($("#qtidade").val());
+        while (i > 0) {
+          $("#add").append(
+            "<div id=" +
+              contCampo +
+              ' class="campo"><input type="text" class="titulo" value="Campo ' +
+              contCampo +
+              '"> PIC <select class="select"><option></option><option value="X"> X </option><option value="9"> 9 </option></select>(<input class="tamanho" type="text">) VALUE <input onfocus="preencher(this); $(this).select();" onblur="preencher(this)" class="book" type="text"><div class="fechar" title="remover" onclick="fechar(this)">x</div></div>'
+          );
+          contCampo++;
+          i--;
+        }
+      });
+      //////////////////////////////////////////////////////////////////////////////////////////////
+
+      /////////////Limpar campos////////////////////////////////////////////////////////////////////
+      $("#botao3").click(function () {
+        $("#qtidade").val("");
+        $("#recebe").val("");
+        $(".book").val("");
+        contCampo = 1;
+        $("#carac").html("0");
+      });
+      //////////////////////////////////////////////////////////////////////////////////////////////
+
+      /////////////Resetar todos os campos//////////////////////////////////////////////////////////
+      $("#botao5").click(function () {
+        $("#qtidade").val("");
+        $("#recebe").val("");
+        $(".campo").remove();
+        contCampo = 1;
+        $("#carac").html("0");
+      });
+      //////////////////////////////////////////////////////////////////////////////////////////////
+
+      /////////////mostrar a DIV de ajuda///////////////////////////////////////////////////////////
+      $("#ajuda").click(function () {
+        $("#help").toggle("slow", function () {
+          var mostraAjuda = $("#help").css("display");
+
+          if (mostraAjuda === "block") {
+            $("#ajuda").html("X");
+            $("#ajuda").css({
+              "background-color": "#FFF",
+              color: "#277ae1",
+            });
+          } else {
+            $("#ajuda").html("AJUDA");
+            $("#ajuda").css({
+              "background-color": "#277ae1",
+              color: "#FFF",
+            });
+          }
+        });
+      });
+      //////////////////////////////////////////////////////////////////////////////////////////////
+
+      /////////////esconder a DIV de ajuda//////////////////////////////////////////////////////////
+      $("#botao4").click(function () {
+        $("#help").slideUp();
+        $("#ajuda").css({
+          "background-color": "#C00",
+          "border-color": "#C00",
+          color: "#FFF",
+        });
+      });
+      //////////////////////////////////////////////////////////////////////////////////////////////
+
+      //////////// Ler os dados colados na textarea e gerar campos automaticamente//////////////////
+      $("#ler").click(function () {
+        //quebra o campo em um vetor de strings
+        var book = $("#colar").val().split(".");
+        for (var i in book) {
+          book[i] = $.trim(book[i]).toUpperCase();
+          if (book[i].startsWith("*")) {
+            continue;
+          } else if (book[i].indexOf("PIC") < 1) {
+            continue;
+          } else {
+            //tirar espacos antes e depois da string
+            var str = book[i].toUpperCase();
+            //dividir a string em dois usando PIC como separador
+            str = str.split("PIC");
+            //criar campo
+            $("#add").append(
+              "<div id=" +
+                contCampo +
+                ' class="campo"><input type="text" class="titulo" value="Campo ' +
+                contCampo +
+                '"> PIC <select class="select"><option></option><option value="X"> X </option><option value="9"> 9 </option></select>(<input class="tamanho" type="text">) VALUE <input onfocus="preencher(this); $(this).select();" onblur="preencher(this)" class="book" type="text"><div class="fechar" title="remover" onclick="fechar(this)">x</div></div>'
+            );
+            //insere a primeira parte da string no nome do campo
+            $("#" + contCampo + " .titulo").val(str[0]);
+            //pegar o tipo
+            str[1] = $.trim(str[1]).replace("S", ""); //Remove o S que indica o sinal, enquanto pesquisamos como montar a COMMAREA com sinal.
+            console.log(str[1]);
+
+            var pic = str[1].substr(0, 1);
+            if (pic === "S") {
+              pic = 9;
+            }
+            $("#" + contCampo + " .select").val(pic);
+
+            // pagar tamanho  gilmar adaptado
+            var strPosV = " ";
+            var strAntV = " ";
+
+            var size = 0;
+            var direita = 0;
+            var esquerda = 0;
+            var temVirgula = 0;
+
+            //*****************************************************************
+            //***                TRTAR CAMPO COM VIRGULA                   ****
+            //*****************************************************************
+            if (str[1].indexOf("V9") >= 0) {
+              tamVirgula = 1;
+              var strAntV = str[1].substr(0, str[1].indexOf("V"));
+              var strPosV = str[1].substr(
+                parseInt(str[1].indexOf("V")) + 1,
+                str[1].length - parseInt(str[1].indexOf("V"))
+              );
+
+              //**************************************************************
+              // ESQUERDA
+              if (strAntV[1].indexOf("(") >= 0) {
+                esquerda = strAntV.substr(2, strAntV.indexOf(")") - 2);
+                while (esquerda.startsWith("0")) {
+                  esquerda = esquerda.replace("0", "");
+                }
+              } else
+                switch (strAntV) {
+                  case "999999999999999999":
+                    esquerda = 18;
+                    break;
+                  case "99999999999999999":
+                    esquerda = 17;
+                    break;
+                  case "9999999999999999":
+                    esquerda = 16;
+                    break;
+                  case "999999999999999":
+                    esquerda = 15;
+                    break;
+                  case "99999999999999":
+                    esquerda = 14;
+                    break;
+                  case "9999999999999":
+                    esquerda = 13;
+                    break;
+                  case "999999999999":
+                    esquerda = 12;
+                    break;
+                  case "99999999999":
+                    esquerda = 11;
+                    break;
+                  case "9999999999":
+                    esquerda = 10;
+                    break;
+                  case "999999999":
+                    esquerda = 9;
+                    break;
+                  case "99999999":
+                    esquerda = 8;
+                    break;
+                  case "9999999":
+                    esquerda = 7;
+                    break;
+                  case "999999":
+                    esquerda = 6;
+                    break;
+                  case "99999":
+                    esquerda = 5;
+                    break;
+                  case "9999":
+                    esquerda = 4;
+                    break;
+                  case "999":
+                    esquerda = 3;
+                    break;
+                  case "99":
+                    esquerda = 2;
+                    break;
+                  case "9":
+                    esquerda = 1;
+                    break;
+                }
+              //console.log("Esquerda: " + esquerda);
+
+              // DIREITA
+              if (strPosV[1].indexOf("(") >= 0) {
+                direita = strPosV.substr(2, strPosV.indexOf(")") - 2);
+                while (direita.startsWith("0")) {
+                  direita = direita.replace("0", "");
+                }
+              } else
+                switch (strPosV) {
+                  case "999999999999999999":
+                    direita = 18;
+                    //console.log("d18");
+                    break;
+                  case "99999999999999999":
+                    direita = 17;
+                    //console.log("d17");
+                    break;
+                  case "9999999999999999":
+                    direita = 16;
+                    //console.log("d16");
+                    break;
+                  case "999999999999999":
+                    direita = 15;
+                    //console.log("d15");
+                    break;
+                  case "99999999999999":
+                    direita = 14;
+                    //console.log("d14");
+                    break;
+                  case "9999999999999":
+                    direita = 13;
+                    //console.log("d13");
+                    break;
+                  case "999999999999":
+                    direita = 12;
+                    //console.log("d12");
+                    break;
+                  case "99999999999":
+                    direita = 11;
+                    //console.log("d11");
+                    break;
+                  case "9999999999":
+                    direita = 10;
+                    //console.log("d10");
+                    break;
+                  case "999999999":
+                    direita = 9;
+                    //console.log("d 9");
+                    break;
+                  case "99999999":
+                    direita = 8;
+                    //console.log("d 8");
+                    break;
+                  case "9999999":
+                    direita = 7;
+                    //console.log("d 7");
+                    break;
+                  case "999999":
+                    direita = 6;
+                    //console.log("d 6");
+                    break;
+                  case "99999":
+                    direita = 5;
+                    //console.log("d 5");
+                    break;
+                  case "9999":
+                    direita = 4;
+                    //console.log("d 4");
+                    break;
+                  case "999":
+                    direita = 3;
+                    //console.log("d 3");
+                    break;
+                  case "99":
+                    direita = 2;
+                    //console.log("d 2");
+                    break;
+                  case "9":
+                    direita = 1;
+                    //console.log("d 1");
+                    break;
+                }
+
+              ////console.log("Direita: " + direita);
+              size = parseInt(direita) + parseInt(esquerda);
+              ////console.log("Size Final: " + size);
+            } else {
+              size = str[1].substr(2, str[1].indexOf(")") - 2);
+              //eliminar zeros a esquerda
+              while (size.startsWith("0")) {
+                size = size.replace("0", "");
+              }
+            }
+
+            size = parseInt(size);
+            $("#" + contCampo + " .tamanho").val(size);
+
+            //preencher campo
+            if (book[i].indexOf("VALUE") > 0) {
+              if (pic == "X") {
+                var valor = book[i].substr(book[i].indexOf("'") + 1, 8);
+              }
+              if (pic == "9") {
+                var valor = $.trim(
+                  book[i].substr(book[i].indexOf("VALUE") + 5, book[i].length)
+                );
+              }
+            } else {
+              var valor = $("#" + contCampo + " .book").val();
+            }
+            valor = completaCampo(pic, size, valor);
+            $("#" + contCampo + " .book").val(valor);
+            contCampo++;
+          }
+        }
+
+        // $("#colar").val("");
+      });
+
+      $("#invert").click(function () {
+        var massa = $("#recebe").val();
+        var contC = parseInt($("#add").children().length);
+        for (var x = 1; x <= contC; x++) {
+          var tam = parseInt($("#" + x + " .tamanho").val());
+          var valor = massa.substr(0, tam);
+          massa = massa.substr(tam, massa.length);
+          $("#" + x + " .book").val(valor);
+        }
+      });
+    });
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////completar o TAM-LAYOUT com zeros se for menor que 5/////////////////////////
+    function autoComplete(objeto) {
+      var v = objeto.value;
+      var t = v.length;
+      switch (t) {
+        case 1:
+          v = "0000" + v;
+          break;
+        case 2:
+          v = "000" + v;
+          break;
+        case 3:
+          v = "00" + v;
+          break;
+        case 4:
+          v = "0" + v;
+          break;
+      }
+      $(objeto).val(v);
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+    ////////////////////funcao � chamada no evento .focus() do input (.book)//////////////////////
+    function preencher(objeto) {
+      var tamanho = 0;
+      var tipo = "";
+      //pega o valor do combo de tipo (X,9)
+      var id = objeto.parentNode.id;
+      tipo = $("#" + id + " .select").val();
+
+      //pega o valor do input anterior(tamanho) e atribui ao maxlength do input(.book)
+      tamanho = parseInt($("#" + id + " .tamanho").val());
+      $(objeto).attr("maxlength", tamanho);
+
+      var valor = objeto.value;
+      valor = completaCampo(tipo, tamanho, valor);
+
+      $(objeto).val(valor);
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+    //////////////////////preenche o input de acordo com o tipo do campo (X, 9)/////////////////
+    function completaCampo(tipo, tamanho, valor) {
+      if (tipo == "X") {
+        var tam = tamanho - valor.length;
+        while (tam > 0) {
+          valor = valor + " ";
+          tam--;
+        }
+      } else if (tipo == "9") {
+        var tam = tamanho - valor.length;
+        while (tam > 0) {
+          valor = "0" + valor;
+          tam--;
+        }
+      }
+      return valor;
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+    //////////////////////////remover campo///////////////////////////////////////////////////////
+    function fechar(objeto) {
+      $(objeto.parentNode).remove();
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+    ///////////////////// Varrer todos os campos .book para formar uma string unica///////////////
+    function i() {
+      //pegar valor de todos os inputs e criar string unica
+
+      var valor = $(".book")
+        .map(function () {
+          return $(this).val().toUpperCase();
+        })
+        .get()
+        .join("");
+
+      //pegar o tamanho da string para quebrar de 70 em 70 caracteres
+      var max = valor.length;
+      $("#carac").html(max);
+
+      //quebrando a string a cada 70 caracteres
+      /*var cont = 70;
+       	var aux = valor.substr(0,70);
+       	while(cont<=max){
+       		aux = aux + "\r\n"+valor.substr(cont, 70);
+       		cont+=70;
+       	}
+       	*/
+      //aviso de limite de COMAREA
+      if (max > 20480) {
+        alert("Quatidade de bytes ultrapassou o limite 20Kb! ");
+        $("#recebe").val("");
+      } else {
+        //$("#recebe").val(aux);
+        $("#recebe").val(valor);
+      }
+
+      //copiar (CTRL+C) string gerada
+      $("#recebe").focus();
+      $("#recebe").select();
+      navigator.clipboard.writeText(valor);
+      $("#myModal").fadeIn(500);
+      $("#myModal").delay(1000);
+      $("#myModal").fadeOut(1000);
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+    //chama a funcao i() no evento click do botao
+    $("#botao2").click(i);
+  </script>
+</html>
