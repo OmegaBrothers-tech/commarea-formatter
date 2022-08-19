@@ -5,213 +5,390 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>COMMAREA FORMATTER | OmegaBroters.tech</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://omegabrothers-tech.github.io/commarea-formatter/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./assets/js/header.js" defer></script>
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/geral.css" />
+    <link rel="stylesheet" href="./assets/css/header.css" />
+    <link rel="stylesheet" href="./assets/css/menu__item-modal.css" />
+    <link rel="stylesheet" href="./assets/css/conteudo.css" />
+    <link rel="stylesheet" href="./assets/css/conteudo-upload__book.css" />
+    <link rel="stylesheet" href="./assets/css/conteudo-adicionar__campos.css" />
+    <link rel="stylesheet" href="./assets/css/secao-campos-gerados.css" />
+    <link rel="stylesheet" href="./assets/css/botoes-controle-commarea.css" />
+    <link rel="stylesheet" href="./assets/css/resultado.css" />
+    <link rel="stylesheet" href="./assets/css/descricao-ferramenta.css" />
+    <link rel="stylesheet" href="./assets/css/footer.css" />
+    <link rel="stylesheet" href="./assets/css/modal-copy-paste.css" />
   </head>
   <body>
-    <!--------- CABEÇALHO -------------->
-    <header id="header">
-      <h1>COMMAREA FORMATTER</h1>
-      <p id="ajuda">AJUDA</p>
+    <header class="header">
+      <div class="container">
+        <a href="#"><h1>COMMAREA FORMATTER</h1></a>
+        <ul class="menu">
+          <li class="menu__item doar">DOAR</li>
+          <li class="menu__item ajuda">AJUDA</li>
+        </ul>
+        <div class="menu__item-modal modal-doar">
+          <section class="modal-detalhe">
+            <div class="modal-detalhe-header">
+              <h1>DOAR</h1>
+              <button class="fechar-modal">FECHAR</button>
+            </div>
+            <h2>
+              Apoie-nos! Assim podemos continuar apoiando a comunidade
+              coboleira.
+            </h2>
+            <p>
+              Doando qualquer quantia, você está contribuindo para manter esta
+              ferramenta e nos incentiva a desenvolver melhorias.
+            </p>
+            <p>Utilize qualquer uma das opções abaixo:</p>
 
-      <nav id="help">
-        <h1 style="font-size: 19px">AJUDA</h1>
-        <br />
-        <div style="overflow: auto; height: 630px">
-          <h3>Modo de usar:</h3>
-          <p><strong>Preenchimento Automático</strong></p>
-          <ol>
-            <li>Copie e cole os campos do seu COPYBOOK no campo indicado;</li>
-            <li>Clique no botão CARREGAR;</li>
-            <li>Preencha os valores desejados para cada campo;</li>
-            <li>Clique no botão GERAR COMMAREA. Pronto!</li>
-          </ol>
+            <div class="modal_doar-card-area">
+              <div class="modal__doar-card">
+                <h3>Doe via PayPal</h3>
 
-          <br />
-          <p><strong>Preenchimento manual</strong></p>
-          <ol>
-            <li>Insira a quantidade de campos do COPYBOOK e clique em ADD;</li>
-            <li>
-              Cada uma das caixas carregadas é composta por 3 campos (tipo,
-              tamanho e valor);
-            </li>
-            <li>
-              Selecione, primeiramente, o tipo do campo (X - alfanumérico ou 9 -
-              numérico);
-            </li>
-            <li>No próximo campo, digite o tamanho do campo;</li>
-            <li>
-              Selecione o próximo campo e ele será preenchido automaticamente
-              com espaços (se o tipo for X) ou zeros (se o tipo for 9);
-            </li>
-            <li>Faça o mesmo nas demais caixas e clique em GERAR COMMAREA;</li>
-            <li>
-              A COMMAREA gerada será copiada para o clipboard (CTRL+C)
-              automaticamente.
-            </li>
-            <li>Clique em LIMPAR para resetar todos os campos.</li>
-          </ol>
-          <br />
-          <p><strong>Verificar COMMAREA</strong></p>
-          <ol>
-            <li>
-              Copie e cole os campos do book de entrada no campo indicado;
-            </li>
-            <li>Clique no botão Carregar;</li>
-            <li>
-              Depois que os campos forem gerados, clique no botão 'Limpar
-              Campos'
-            </li>
-            <li>
-              Cole a sua COMMAREA no campo de texto ao lado do botão REVALIDAR.
-            </li>
-            <li>Clique no botão REVALIDAR</li>
-            <li>A COMMAREA será dividida e colocada em seus devidos campos.</li>
-            <li>
-              Pronto! Agora você pode conferir se o layout e a COMMAREA estão de
-              acordo.
-            </li>
-          </ol>
-          <br />
-          <h3>Dicas</h3>
-          <ol>
-            <li>
-              Para facilitar a identificação de cada campo você pode
-              renomeá-los. Basta clicar sobre o nome do campo.
-            </li>
-            <li>
-              Você pode remover e adicionar campos livremente, não há limite de
-              campos.
-            </li>
-          </ol>
+                <!-- Estrutura de botao de doação do paypal - Não alterar -->
+                <form
+                  action="https://www.paypal.com/donate"
+                  method="post"
+                  target="_blank"
+                >
+                  <input
+                    type="hidden"
+                    name="hosted_button_id"
+                    value="BWDLYSGVTQYSG"
+                  />
+                  <input
+                    type="image"
+                    src="https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_donateCC_LG.gif"
+                    border="0"
+                    name="submit"
+                    title="PayPal - The safer, easier way to pay online!"
+                    alt="Faça doações com o botão do PayPal"
+                  />
+                  <img
+                    alt=""
+                    border="0"
+                    src="https://www.paypal.com/pt_BR/i/scr/pixel.gif"
+                    width="1"
+                    height="1"
+                  />
+                </form>
+              </div>
+              <div class="modal__doar-card">
+                <h3>Doe via PagSeguro</h3>
+
+                <!-- Estrutura de botao de doação do paypal - Não alterar -->
+                <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                <form
+                  action="https://pagseguro.uol.com.br/checkout/v2/donation.html"
+                  method="post"
+                  target="_blank"
+                >
+                  <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                  <input type="hidden" name="currency" value="BRL" />
+                  <input
+                    type="hidden"
+                    name="receiverEmail"
+                    value="diego7cardoso@gmail.com"
+                  />
+                  <input type="hidden" name="iot" value="button" />
+                  <input
+                    type="image"
+                    src="https://stc.pagseguro.uol.com.br/public/img/botoes/doacoes/120x53-doar.gif"
+                    name="submit"
+                    alt="Pague com PagSeguro - é rápido, grátis e seguro!"
+                  />
+                </form>
+                <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+              </div>
+              <div class="modal__doar-card">
+                <h3>Doe via MercadoPago</h3>
+                <!-- Estrutura de botao de doação do MercadoPago -->
+                <a
+                  href="https://link.mercadopago.com.br/omegabrotherstech"
+                  target="_blank"
+                  class="mercado-pago"
+                >
+                  <img
+                    src="./assets/img/mercado-pago.png"
+                    alt="Faça doações através do Mercado Pago"
+                    title="Faça doações através do Mercado Pago"
+                  />
+                </a>
+              </div>
+
+              <div class="modal__doar-card">
+                <h3>Doe via PicPay</h3>
+                <!-- Estrutura de botao de doação do PicPay -->
+                <a
+                  href="https://app.picpay.com/user/diego.cardoso.moraes"
+                  target="_blank"
+                  class="picpay"
+                >
+                  <img
+                    src="./assets/img/picpay.png"
+                    alt="Faça doações através do PicPay"
+                    title="Faça doações através do PicPay"
+                  />
+                </a>
+              </div>
+            </div>
+            <p>
+              Todas estas opções já são grandes conhecidos no mercado de
+              pagamentos e consideradas muito seguras.
+            </p>
+            <p>
+              Então você não precisa se preocupar com a segurança de seus dados.
+            </p>
+
+            <h3>O time OMEGABROTHERS.tech agradece imensamente o seu apoio!</h3>
+          </section>
         </div>
-        <br />
-      </nav>
-    </header>
-    <!--------- CORPO PARA CONTEUDO -------------->
-    <div id="content">
-      <!--------- AREA PARA LER BOOK -------------->
-      <div id="upload">
-        <p>Cole seu COPYBOOK aqui e clique em CARREGAR:</p>
-        <p>
-          <textarea id="colar"></textarea>
-          <input
-            type="button"
-            value="Carregar"
-            id="ler"
-            class="button"
-            title="Lê o COPYBOOK e o divide em campos"
-          />
-        </p>
+        <div class="menu__item-modal modal-ajuda">
+          <section class="modal-detalhe">
+            <div class="modal-detalhe-header">
+              <h1>AJUDA</h1>
+              <button class="fechar-modal">FECHAR</button>
+            </div>
+            <div>
+              <h2>Modo de usar</h2>
+
+              <h3>Preenchimento Automático</h3>
+              <ol>
+                <li>
+                  Copie e cole os campos do seu COPYBOOK no campo indicado;
+                </li>
+                <li>Clique no botão CARREGAR;</li>
+                <li>Preencha os valores desejados para cada campo;</li>
+                <li>Clique no botão GERAR COMMAREA. Pronto!</li>
+              </ol>
+
+              <h3>Preenchimento manual</h3>
+              <ol>
+                <li>
+                  Insira a quantidade de campos do COPYBOOK e clique em ADD;
+                </li>
+                <li>
+                  Cada uma das caixas carregadas é composta por 3 campos (tipo,
+                  tamanho e valor);
+                </li>
+                <li>
+                  Selecione, primeiramente, o tipo do campo (X - alfanumérico ou
+                  9 - numérico);
+                </li>
+                <li>No próximo campo, digite o tamanho do campo;</li>
+                <li>
+                  Selecione o próximo campo e ele será preenchido
+                  automaticamente com espaços (se o tipo for X) ou zeros (se o
+                  tipo for 9);
+                </li>
+                <li>
+                  Faça o mesmo nas demais caixas e clique em GERAR COMMAREA;
+                </li>
+                <li>
+                  A COMMAREA gerada será copiada para o clipboard (CTRL+C)
+                  automaticamente.
+                </li>
+                <li>Clique em LIMPAR para resetar todos os campos.</li>
+              </ol>
+
+              <h3>Verificar COMMAREA</h3>
+              <ol>
+                <li>
+                  Copie e cole os campos do book de entrada no campo indicado;
+                </li>
+                <li>Clique no botão Carregar;</li>
+                <li>
+                  Depois que os campos forem gerados, clique no botão 'Limpar
+                  Campos'
+                </li>
+                <li>
+                  Cole a sua COMMAREA no campo de texto ao lado do botão
+                  REVALIDAR.
+                </li>
+                <li>Clique no botão REVALIDAR</li>
+                <li>
+                  A COMMAREA será dividida e colocada em seus devidos campos.
+                </li>
+                <li>
+                  Pronto! Agora você pode conferir se o layout e a COMMAREA
+                  estão de acordo.
+                </li>
+              </ol>
+
+              <h3>Dicas</h3>
+              <ol>
+                <li>
+                  Para facilitar a identificação de cada campo você pode
+                  renomeá-los. Basta clicar sobre o nome do campo.
+                </li>
+                <li>
+                  Você pode remover e adicionar campos livremente, não há limite
+                  de campos.
+                </li>
+              </ol>
+            </div>
+          </section>
+        </div>
       </div>
+    </header>
+
+    <div class="conteudo container">
+      <!--------- AREA PARA LER BOOK -------------->
+      <section id="upload" class="secoes upload__book">
+        <div class="upload__book-instrucao">
+          <img
+            src="./assets/img/curved-arrow-share-svgrepo-com.svg"
+            alt="Seta curva para a direita"
+          />
+          <p>
+            Cole seu <strong>COPYBOOK</strong> na área ao lado e clique no botão
+            <strong> CARREGAR. </strong>
+          </p>
+        </div>
+        <textarea id="colar" name="colarBook" rows="25"></textarea>
+        <button id="ler" title="Lê o COPYBOOK e o divide em campos">
+          <span>CARREGAR</span>
+        </button>
+      </section>
 
       <!--------- Adicionar campos manualmente -------------->
-      <div id="lateral">
-        <div class="campo1">
-          <p>
-            Para adicionar campos manualmente, digite a quantidade desejada de
-            campos e clique em ADD.
-          </p>
-          <input type="text" id="qtidade" />
-          <input
-            type="button"
-            class="button"
-            value="Add"
-            id="botao"
-            title="Adiciona campos manualmente."
-          />
-        </div>
-      </div>
-
-      <p style="clear: both"></p>
+      <section class="secoes adicionar__campos">
+        <p>
+          Ou adicione campos manualmente...<br />
+          Digite a quantidade e clique em <strong>ADD</strong>:
+        </p>
+        <input type="text" id="qtidade" />
+        <button class="button adicionar" title="Adiciona campos manualmente.">
+          ADD
+        </button>
+      </section>
 
       <!--------- DIV QUE CARREGA OS CAMPOS DINÂMICOS -------------->
-      <div id="add">
-        <p>Os campos serão carregados logo abaixo:</p>
-      </div>
+      <section class="secao-campos-gerados">
+        <div class="secao-campos-gerados-descricao">
+          <div>
+            <img
+              src="/assets/img/down-arrow-sketch.svg"
+              alt="Seta para baixo"
+            />
+            <p>Os campos do book serão carregados logo abaixo.</p>
+          </div>
+          <div>
+            <img src="/assets/img/editsvg.svg" alt="Ícone de edição" />
+            <p>
+              Todos os campos do layout são editáveis, então sinta-se livre para
+              alterar o que desejar.
+            </p>
+          </div>
+          <div>
+            <img src="/assets/img/thumbsup.svg" alt="Ícone de curtir" />
+            <p>
+              É possível carregar os campos do seu book e ainda adicionar mais
+              campos manualmente.
+            </p>
+          </div>
+        </div>
+        <div class="secao-campos-gerados-detalhe"></div>
+      </section>
 
-      <!--------- BOTOES: GERAR E LIMPAR -------------->
-      <div id="botoes">
-        <input
-          type="button"
-          value="Gerar Commarea"
+      <!--------- BOTOES: GERAR, LIMPAR e RESET -------------->
+      <section class="botoes-controle-commarea">
+        <button
           id="botao2"
-          class="button"
           title="Cria String/COMMAREA com o valor de todos os campos acima."
-        />
-        <input
-          type="button"
-          value="Limpar Campos"
-          id="botao3"
-          class="button"
-          title="Limpa o conteúdo de todos os campos"
-        />
-        <input
-          type="button"
-          value="Reset"
-          id="botao5"
-          class="button"
-          title="Reseta toda a tela"
-        />
-      </div>
-      <br />
-      <!--------- AREA PARA RECEBER OS DADOS -------------->
-      <p>
-        Sua COMMAREA será gerada aqui, basta copiá-la e realizar seus testes.
-        Viu como é fácil!? <br />
-        Ah! Você também pode colar uma COMMAREA aqui para validar se está de
-        acordo com layout do seu COPYBOOK. (deve ser uma
-        <strong>STRING ÚNICA, SEM QUEBRA DE LINHAS </strong>).
-      </p>
-      <p>
-        <textarea cols="71" id="recebe"></textarea>
-        <input
-          type="button"
-          value="REVALIDAR"
-          id="invert"
-          class="button"
-          title="LÊ O COPYBOOK E GERA OS CAMPOS"
-        />
-      </p>
-      <p>
-        Quatidade de caracteres: <strong><span id="carac">0</span></strong>
-      </p>
+        >
+          GERAR COMMAREA
+        </button>
 
+        <button id="botao3" title="Limpa o conteúdo de todos os campos">
+          LIMPAR CAMPOS
+        </button>
+
+        <button id="botao5" title="Reseta toda a tela">RESET</button>
+      </section>
+
+      <!--------- AREA PARA RECEBER OS DADOS -------------->
+      <section class="resultado">
+        <div class="resultado-container">
+          <div>
+            <img
+              src="/assets/img/down-arrow-sketch.svg"
+              alt="Seta para baixo"
+            />
+            <p>
+              Sua COMMAREA será gerada aqui! Basta copiá-la e realizar seus
+              testes. Viu como é fácil!?
+            </p>
+          </div>
+          <div>
+            <p>
+              Ah! Você também pode colar uma COMMAREA aqui para validar se está
+              de acordo com layout do seu COPYBOOK. (deve ser uma
+              <strong>STRING ÚNICA, SEM QUEBRA DE LINHAS </strong>).
+            </p>
+            <img
+              class="seta-cima"
+              src="/assets/img/down-arrow-sketch.svg"
+              alt="Seta para cima"
+            />
+          </div>
+        </div>
+        <div class="resultado-container commarea">
+          <textarea id="recebe"></textarea>
+          <button id="invert" title="LÊ O COPYBOOK E GERA OS CAMPOS">
+            REVALIDAR
+          </button>
+        </div>
+        <p class="qtidade-caracs">
+          Quatidade de caracteres: <strong><span id="carac">0</span></strong>
+        </p>
+      </section>
       <!--------- DESCRIÇÂO -------------->
-      <div class="descricao">
-        <h3>O que é?</h3>
-        <p>
-          Você pode chamar de Formatador de Commarea COBOL, Gerador de Massa
-          CICS, Copybook Parser ou algo do gênero, mas na real, esse troço vai
-          te ajudar a gerar sua massa de entrada sem que você tenha que ficar
-          contando tamanho de campo.
-        </p>
-        <h3>E pra quê serve?</h3>
-        <p>
-          Imagine que você precisa testar um programa COBOL, seja CICS Online ou
-          BATCH, e precisa preencher a área de entrada ou criar um registro para
-          o seu arquivo "NA MÃO"...
-          <strong>Não! Você está fazendo isso errado!</strong>
-        </p>
-        <p>
-          Com esta ferramenta você pode facilitar muito sua vida triste de
-          desenvolvedor(a) COBOL, na hora de fazer seus testes unitários.
-        </p>
-        <p>
-          Apenas cole seu COPYBOOK, clique no botão CARREGAR e veja a mágica
-          acontecer! Depois é só preencher o que desejar em cada campo gerado e
-          "Voilà", basta pegar sua COMMAREA, ou seu registro, prontinha para o
-          teste.
-        </p>
-        <p>
-          Para mais informações, clique em <strong>AJUDA</strong> (lá em cima).
-        </p>
+      <section class="descricao-ferramenta">
+        <div>
+          <h3>O que é?</h3>
+          <p>
+            Você pode chamar de Formatador de Commarea COBOL, Gerador de Massa
+            CICS, Copybook Parser ou algo do gênero, mas na real, esse troço vai
+            te ajudar a gerar sua massa de entrada sem que você tenha que ficar
+            contando tamanho de campo.
+          </p>
+        </div>
+
+        <div>
+          <h3>E pra quê serve?</h3>
+
+          <p>
+            Imagine que você precisa testar um programa COBOL, seja CICS Online
+            ou BATCH, e precisa preencher a área de entrada ou criar um registro
+            para o seu arquivo "NA MÃO"...
+            <strong>Não! Você está fazendo isso errado!</strong>
+          </p>
+          <p>
+            Com esta ferramenta você pode facilitar muito sua vida triste de
+            desenvolvedor(a) COBOL, na hora de fazer seus testes unitários.
+          </p>
+          <p>
+            Apenas cole seu COPYBOOK, clique no botão CARREGAR e veja a mágica
+            acontecer! Depois é só preencher o que desejar em cada campo gerado
+            e "Voilà", basta pegar sua COMMAREA, ou seu registro, prontinha para
+            o teste.
+          </p>
+          <p>
+            Para mais informações, clique em <strong>AJUDA</strong> (lá em
+            cima).
+          </p>
+        </div>
         <h3>Enjoy, COBOLEIRO!</h3>
-      </div>
+      </section>
 
       <div id="myModal" class="modal">
         <!-- Modal content -->
-        <div class="modal-content">
+        <div class="modal-content container">
           <h1>String/COMMAREA copiada para o clipboard!</h1>
           <h2>(Isso mesmo, está no seu CRTL + C)</h2>
         </div>
@@ -219,8 +396,11 @@
     </div>
 
     <!--------- RODAPÉ -------------->
-    <div id="footer">
-      <p id="diego">OMEGABROTHERS.TECH</p>
+    <div class="footer">
+      <div class="container">
+        <p>Todos os direitos reservados &copy;2013</p>
+        <p id="diego">OMEGABROTHERS.TECH</p>
+      </div>
     </div>
   </body>
   <script type="text/javascript">
@@ -235,24 +415,30 @@
     $(document).ready(function () {
       $("#colar").focus();
       $("#diego").html("Omegabrothers.tech");
-      //////////////////////////////////////////////////////////////////////////////////////////////
-      $("#span").click(function () {
-        $("#lateral").slideDown();
-      });
+
       /////////////Inserir campos ao clicar no bot�o////////////////////////////////////////////////
-      $("#botao").click(function () {
+      $(".adicionar").click(function () {
+        // validar se o campo está vazio
+        if (!$("#qtidade").val()) {
+          return;
+        }
+
+        mostrarConteudo();
+
         var i = parseInt($("#qtidade").val());
         while (i > 0) {
-          $("#add").append(
+          $(".secao-campos-gerados-detalhe").append(
             "<div id=" +
               contCampo +
               ' class="campo"><input type="text" class="titulo" value="Campo ' +
               contCampo +
-              '"> PIC <select class="select"><option></option><option value="X"> X </option><option value="9"> 9 </option></select>(<input class="tamanho" type="text">) VALUE <input onfocus="preencher(this); $(this).select();" onblur="preencher(this)" class="book" type="text"><div class="fechar" title="remover" onclick="fechar(this)">x</div></div>'
+              '"> PIC <select class="select"><option></option><option value="X"> X </option><option value="9"> 9 </option></select>(<input class="tamanho" type="text">) VALUE <input onfocus="preencher(this); $(this).select();" onblur="preencher(this)" class="book" type="text"><span class="fechar" title="remover" onclick="fechar(this)">X</span></div>'
           );
           contCampo++;
           i--;
         }
+
+        scrollPage(".secao-campos-gerados");
       });
       //////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -268,49 +454,24 @@
 
       /////////////Resetar todos os campos//////////////////////////////////////////////////////////
       $("#botao5").click(function () {
+        $("#colar").val("");
         $("#qtidade").val("");
         $("#recebe").val("");
         $(".campo").remove();
         contCampo = 1;
         $("#carac").html("0");
-      });
-      //////////////////////////////////////////////////////////////////////////////////////////////
-
-      /////////////mostrar a DIV de ajuda///////////////////////////////////////////////////////////
-      $("#ajuda").click(function () {
-        $("#help").toggle("slow", function () {
-          var mostraAjuda = $("#help").css("display");
-
-          if (mostraAjuda === "block") {
-            $("#ajuda").html("X");
-            $("#ajuda").css({
-              "background-color": "#FFF",
-              color: "#277ae1",
-            });
-          } else {
-            $("#ajuda").html("AJUDA");
-            $("#ajuda").css({
-              "background-color": "#277ae1",
-              color: "#FFF",
-            });
-          }
-        });
-      });
-      //////////////////////////////////////////////////////////////////////////////////////////////
-
-      /////////////esconder a DIV de ajuda//////////////////////////////////////////////////////////
-      $("#botao4").click(function () {
-        $("#help").slideUp();
-        $("#ajuda").css({
-          "background-color": "#C00",
-          "border-color": "#C00",
-          color: "#FFF",
-        });
+        scrollPage(".header");
       });
       //////////////////////////////////////////////////////////////////////////////////////////////
 
       //////////// Ler os dados colados na textarea e gerar campos automaticamente//////////////////
       $("#ler").click(function () {
+        // validar se o campo está vazio
+        if (!$("#colar").val()) {
+          return;
+        }
+        mostrarConteudo();
+
         //quebra o campo em um vetor de strings
         var book = $("#colar").val().split(".");
         for (var i in book) {
@@ -325,18 +486,17 @@
             //dividir a string em dois usando PIC como separador
             str = str.split("PIC");
             //criar campo
-            $("#add").append(
+            $(".secao-campos-gerados-detalhe").append(
               "<div id=" +
                 contCampo +
                 ' class="campo"><input type="text" class="titulo" value="Campo ' +
                 contCampo +
-                '"> PIC <select class="select"><option></option><option value="X"> X </option><option value="9"> 9 </option></select>(<input class="tamanho" type="text">) VALUE <input onfocus="preencher(this); $(this).select();" onblur="preencher(this)" class="book" type="text"><div class="fechar" title="remover" onclick="fechar(this)">x</div></div>'
+                '"> PIC <select class="select"><option></option><option value="X"> X </option><option value="9"> 9 </option></select>(<input class="tamanho" type="text">) VALUE <input onfocus="preencher(this); $(this).select();" onblur="preencher(this)" class="book" type="text"><span class="fechar" title="remover" onclick="fechar(this)">X</span></div>'
             );
             //insere a primeira parte da string no nome do campo
             $("#" + contCampo + " .titulo").val(str[0]);
             //pegar o tipo
             str[1] = $.trim(str[1]).replace("S", ""); //Remove o S que indica o sinal, enquanto pesquisamos como montar a COMMAREA com sinal.
-            console.log(str[1]);
 
             var pic = str[1].substr(0, 1);
             if (pic === "S") {
@@ -428,7 +588,6 @@
                     esquerda = 1;
                     break;
                 }
-              //console.log("Esquerda: " + esquerda);
 
               // DIREITA
               if (strPosV[1].indexOf("(") >= 0) {
@@ -545,18 +704,23 @@
           }
         }
 
-        // $("#colar").val("");
+        scrollPage(".secao-campos-gerados");
       });
 
       $("#invert").click(function () {
         var massa = $("#recebe").val();
-        var contC = parseInt($("#add").children().length);
+        var contC = parseInt(
+          $(".secao-campos-gerados-detalhe").children().length
+        );
+
         for (var x = 1; x <= contC; x++) {
           var tam = parseInt($("#" + x + " .tamanho").val());
           var valor = massa.substr(0, tam);
           massa = massa.substr(tam, massa.length);
           $("#" + x + " .book").val(valor);
         }
+
+        scrollPage(".secao-campos-gerados");
       });
     });
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -661,6 +825,7 @@
       }
 
       //copiar (CTRL+C) string gerada
+      scrollPage(".resultado");
       $("#recebe").focus();
       $("#recebe").select();
       navigator.clipboard.writeText(valor);
@@ -672,5 +837,27 @@
 
     //chama a funcao i() no evento click do botao
     $("#botao2").click(i);
+
+    function scrollPage(onde) {
+      const praOndeVou =
+        onde == ".resultado"
+          ? $(".resultado").offset().top -
+            ($(".botoes-controle-commarea").height() + $(".resultado").height())
+          : $(onde).offset().top;
+
+      // Funcao para scrollar a tela para a div em que os campos foram gerados
+      $([document.documentElement, document.body]).animate(
+        {
+          scrollTop: praOndeVou,
+        },
+        1000
+      );
+    }
+
+    function mostrarConteudo() {
+      $(".secao-campos-gerados-detalhe").slideDown();
+      $(".resultado ").slideDown();
+      $(".botoes-controle-commarea").css("display", "flex");
+    }
   </script>
 </html>

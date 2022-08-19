@@ -1,0 +1,41 @@
+:root {
+  --branco: #fff;
+  --gelo: #f2f5f7;
+  --cinza: #5b6266;
+  --azul-forte: #277ae1;
+  --azul-fraco: #5aadf4;
+  --azul-ceu: #87CEFA;
+  --azul-super-claro: #EAF2F8;
+}
+
+body {
+  background-color: var(--gelo);
+  font-family: "Open Sans", Arial, sans-serif;
+}
+
+button {
+  padding: 1rem;
+  border: 1px solid var(--azul-fraco);
+  border-bottom: 1px solid var(--azul-forte);
+  border-right: 1px solid var(--azul-forte);
+  border-radius: 3px;
+  font-weight: bold;
+  color: var(--branco);
+  background-color: var(--azul-forte);
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+button:hover {
+  background-color: var(--azul-fraco);
+}
+
+strong{
+  font-weight: 700;
+  
+}
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 85%;
+}

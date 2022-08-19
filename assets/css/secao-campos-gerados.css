@@ -1,0 +1,87 @@
+.secao-campos-gerados {
+  background-color: var(--branco);
+}
+
+.secao-campos-gerados-descricao {
+  background-color: var(--azul-ceu);
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.secao-campos-gerados-descricao div {
+  width: calc(33% - 2rem);
+  padding: 1rem;
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.secao-campos-gerados-descricao div p {
+  width: 70%;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.secao-campos-gerados-descricao div img {
+  width: calc(30% - 0.5rem);
+  height: 70px;
+  margin-right: 0.5rem;
+}
+
+.secao-campos-gerados-detalhe {
+  padding: 1rem;
+  display: none;
+}
+
+.secao-campos-gerados-detalhe .campo,
+.secao-campos-gerados-detalhe .campo input,
+.secao-campos-gerados-detalhe .campo select {
+  font-family: "Courier New", Courier, monospace;
+  border: none;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0 0.3rem;
+}
+
+.secao-campos-gerados-detalhe .campo {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transition: all 0.5s ease;
+}
+
+.secao-campos-gerados-detalhe .campo:hover {
+  background-color: var(--azul-super-claro);
+}
+
+.secao-campos-gerados-detalhe .campo .titulo {
+  width: calc(35% - 0.6rem);
+}
+
+.secao-campos-gerados-detalhe .campo .tamanho {
+  width: calc(5% - 0.6rem);
+}
+
+.secao-campos-gerados-detalhe .campo .book {
+  width: calc(35% - 0.6rem);
+  color: var(--azul-forte)
+}
+
+.secao-campos-gerados-detalhe .campo .fechar {
+  background-color: var(--azul-forte);
+  color: var(--branco);
+  text-align: center;
+  transition: all 0.5s ease;
+  width: calc(5% - .5rem);
+  margin: .1rem .5rem;
+}
+
+.secao-campos-gerados-detalhe .campo .fechar:hover {
+  cursor: pointer;
+  background-color: var(--azul-fraco);
+}

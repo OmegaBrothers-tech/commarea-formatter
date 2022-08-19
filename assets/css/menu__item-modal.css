@@ -1,0 +1,147 @@
+.menu__item-modal {
+  background-color: #00000050;
+  color: var(--cinza);
+  font-weight: 100;
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  text-shadow: none;
+  cursor: default;
+  z-index: 99;
+  display: none;
+}
+
+.modal-detalhe {
+  background-color: var(--gelo);
+  border: 1px solid black;
+  box-shadow: 1px 1px 8px black;
+  width: 85%;
+  max-width: 900px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  position: relative;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.modal-detalhe-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.modal-detalhe-header h1 {
+  text-shadow: none;
+  margin-left: 4rem;
+}
+
+.modal-detalhe h2 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--cinza);
+  margin-bottom: 1rem;
+}
+
+.modal-detalhe h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-detalhe ol {
+  list-style: decimal;
+  flex-wrap: wrap;
+  flex-direction: row;
+  list-style-position: inside;
+  background-color: var(--branco);
+  padding: 0.7rem;
+  box-shadow: 2px 2px 2px #ccc;
+}
+
+.modal-detalhe ol:hover,
+.modal-doar .modal__doar-card:hover {
+  box-shadow: 4px 4px 4px #ccc;
+}
+.modal-detalhe li {
+  font-size: 0.9rem;
+  font-weight: 100;
+  margin: 0.3rem 0;
+}
+
+.modal-detalhe p {
+  margin: 1rem;
+}
+.modal-ajuda .modal-detalhe h2 {
+  background-image: url(../img/help-svgrepo-com.svg);
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 1.6rem;
+}
+.modal-ajuda .modal-detalhe-header {
+  background-image: url(../img/charity-help-svgrepo-com.svg);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.modal-doar .modal-detalhe {
+  background-image: url(../img/cash2.svg);
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: 9rem;
+}
+
+.modal-doar .modal-detalhe-header {
+  background-image: url(../img/coin-svgrepo-com.svg);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.modal-doar .modal-detalhe P {
+  font-weight: 400;
+}
+
+.modal-doar .modal_doar-card-area {
+  align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 1rem;
+}
+
+.modal-doar .modal__doar-card {
+  background-color: var(--branco);
+  width: calc(25% - 3rem);
+  margin: 0.5rem;
+  box-shadow: 2px 2px 2px #ccc;
+  border-radius: 5px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.modal-doar .modal__doar-card h3 {
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.mercado-pago img{
+  margin-bottom: 1rem;
+}
+
+.picpay img{
+  height: 70px;
+}
+
+.mercado-pago img, .picpay img {
+  width: 100%;
+}
