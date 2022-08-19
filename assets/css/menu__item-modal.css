@@ -32,7 +32,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .modal-detalhe-header h1 {
@@ -41,7 +41,7 @@
 }
 
 .modal-detalhe h2 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 500;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--cinza);
@@ -51,33 +51,56 @@
 .modal-detalhe h3 {
   font-size: 1rem;
   font-weight: 500;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   margin-bottom: 0.5rem;
 }
 
-.modal-detalhe ol {
-  list-style: decimal;
-  flex-wrap: wrap;
-  flex-direction: row;
-  list-style-position: inside;
-  background-color: var(--branco);
-  padding: 0.7rem;
-  box-shadow: 2px 2px 2px #ccc;
-}
-
-.modal-detalhe ol:hover,
 .modal-doar .modal__doar-card:hover {
   box-shadow: 4px 4px 4px #ccc;
 }
+
+.modal-detalhe ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  list-style-position: inside;
+  align-items: stretch;
+}
 .modal-detalhe li {
+  background-color: var(--branco);
   font-size: 0.9rem;
   font-weight: 100;
-  margin: 0.3rem 0;
+  width: 150px;
+  height: 85px;
+  padding: 0.5rem;
+  text-align: left;
+  margin: 0 12px 5px 10px;
+  box-shadow: -2px -2px 2px #ccc;
+  position: relative;
+}
+
+.modal-detalhe li::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-left: 15px solid var(--branco);
+  border-bottom: 50px solid transparent;
+  margin-top: -0.5rem;
+  margin-left: calc(150px + 0.5rem);
 }
 
 .modal-detalhe p {
   margin: 1rem;
 }
+
+.modal-ajuda .modal-detalhe {
+  width: 95%;
+  max-width: 1500px;
+  padding: 1rem;
+}
+
 .modal-ajuda .modal-detalhe h2 {
   background-image: url(../img/help-svgrepo-com.svg);
   background-position: right center;
@@ -134,14 +157,15 @@
   margin-bottom: 1rem;
 }
 
-.mercado-pago img{
+.mercado-pago img {
   margin-bottom: 1rem;
 }
 
-.picpay img{
+.picpay img {
   height: 70px;
 }
 
-.mercado-pago img, .picpay img {
+.mercado-pago img,
+.picpay img {
   width: 100%;
 }
