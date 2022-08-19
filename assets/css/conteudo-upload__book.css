@@ -1,0 +1,43 @@
+.upload__book {
+  justify-content: space-between;
+}
+
+.upload__book-instrucao {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  padding: 1rem;
+  width: calc(25% - 5rem);
+}
+.upload__book-instrucao img {
+  height: 40%;
+  margin-bottom: 2rem;
+}
+
+.upload__book-instrucao p {
+  text-align: center;
+}
+
+.upload__book textarea {
+  margin-right: 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--azul-fraco);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
+  padding: 1rem;
+  width: calc(65% - 2rem);
+}
+
+.upload__book button {
+  width: 10%;
+}
+
+.upload__book button span {
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 0.5rem;
+  font-size: 1.2rem;
+}

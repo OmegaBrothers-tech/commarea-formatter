@@ -1,0 +1,51 @@
+.header {
+  background: var(--azul-forte);
+  color: var(--branco);
+  padding: 20px 0;
+}
+
+.header .container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #555;
+}
+
+.header .menu {
+  display: flex;
+}
+
+.menu__item {
+  border-radius: 5px;
+  font-weight: 700;
+  margin-left: 1rem;
+  padding: 1rem 4rem 1rem .5rem;
+  text-shadow: 1px 1px 2px #555;
+  transition: all 0.5s ease;
+}
+
+.menu__item:hover{
+    background-color: var(--azul-fraco);
+    border-radius: 5px;
+    box-shadow: 1px -1px 4px #00000050;
+    cursor: pointer;
+}
+
+.menu__item.doar {
+  background-image: url(../img/coin-svgrepo-com.svg);
+  background-repeat: no-repeat;
+  background-size: 50px;
+  background-position: 60px center;
+}
+
+.menu__item.ajuda{
+  background-image: url(../img/charity-help-svgrepo-com.svg);
+  background-repeat: no-repeat;
+  background-size: 50px;
+  background-position: 65px center;
+}

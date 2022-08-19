@@ -1,0 +1,27 @@
+.adicionar__campos {
+  margin-top: 1.5rem;
+  justify-content: space-between;
+  border-top: 1px solid var(--cinza);
+  padding: 1.5rem 0;
+}
+
+.adicionar__campos p {
+  width: calc(25% - 5rem);
+  padding: 0 1rem;
+  line-height: 1;
+}
+
+.adicionar__campos input {
+  border: 1px solid var(--azul-fraco);
+  border-radius: 5px;
+  width: calc(65% - 1rem);
+  margin-right: 1rem;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.adicionar__campos .adicionar {
+  width: 10%;
+}

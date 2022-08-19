@@ -1,0 +1,13 @@
+.botoes-controle-commarea{
+    background-color: var(--branco);
+    display: none;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem;
+    margin-top: 1px;
+}
+
+.botoes-controle-commarea button{
+    width: 25%;
+}
