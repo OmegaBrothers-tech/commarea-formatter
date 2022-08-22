@@ -17,8 +17,8 @@
   background-color: var(--gelo);
   border: 1px solid black;
   box-shadow: 1px 1px 8px black;
+  max-width: 1200px;
   width: 85%;
-  max-width: 900px;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -59,36 +59,38 @@
   box-shadow: 4px 4px 4px #ccc;
 }
 
-.modal-detalhe ul {
+.modal-ajuda-conteudo {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
-  list-style-position: inside;
-  align-items: stretch;
-}
-.modal-detalhe li {
-  background-color: var(--branco);
-  font-size: 0.9rem;
-  font-weight: 100;
-  width: 150px;
-  height: 85px;
-  padding: 0.5rem;
-  text-align: left;
-  margin: 0 12px 5px 10px;
-  box-shadow: -2px -2px 2px #ccc;
-  position: relative;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
-.modal-detalhe li::before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-top: 50px solid transparent;
-  border-left: 15px solid var(--branco);
-  border-bottom: 50px solid transparent;
-  margin-top: -0.5rem;
-  margin-left: calc(150px + 0.5rem);
+.modal-ajuda-conteudo .modal-ajuda-instrucoes {
+  width: 25%;
+  padding: 0 0.5rem;
+}
+.modal-ajuda-conteudo ol {
+  list-style-position: inside;
+  list-style-type: decimal;
+}
+.modal-ajuda-conteudo li {
+  background-color: var(--azul-super-claro);
+  font-size: 1rem;
+  font-weight: 100;
+  text-align: left;
+  padding: 0.5rem;
+  border: 1px solid transparent;
+  border-left: 3px solid var(--azul-ceu);
+}
+
+.modal-ajuda-conteudo li:nth-child(odd) {
+  background-color: var(--branco);
+}
+
+.modal-ajuda-conteudo li:hover{
+  border: 1px solid var(--azul-ceu);
+  border-left: 3px solid var(--azul-forte);
 }
 
 .modal-detalhe p {
