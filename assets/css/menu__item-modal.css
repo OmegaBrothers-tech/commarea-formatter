@@ -5,7 +5,7 @@
   left: 0;
   top: 0;
   position: absolute;
-  width: 100vw;
+  width: calc(100vw - (1rem + 1px));
   height: 100vh;
   text-shadow: none;
   cursor: default;
@@ -25,7 +25,7 @@
   transform: translateY(-50%);
   position: relative;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .modal-detalhe-header {
@@ -97,12 +97,6 @@
   margin: 1rem;
 }
 
-.modal-ajuda .modal-detalhe {
-  width: 95%;
-  max-width: 1500px;
-  padding: 1rem;
-}
-
 .modal-ajuda .modal-detalhe h2 {
   background-image: url(../img/help-svgrepo-com.svg);
   background-position: right center;
@@ -119,7 +113,7 @@
   background-image: url(../img/cash2.svg);
   background-position: right bottom;
   background-repeat: no-repeat;
-  background-size: 9rem;
+  background-size: 7.5rem;
 }
 
 .modal-doar .modal-detalhe-header {
@@ -128,7 +122,7 @@
   background-position: left center;
 }
 
-.modal-doar .modal-detalhe P {
+.modal-doar .modal-detalhe p {
   font-weight: 400;
 }
 

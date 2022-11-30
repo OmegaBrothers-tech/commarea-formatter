@@ -8,6 +8,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
+  min-width: 728px;
 }
 
 .header h1 {
@@ -24,16 +25,16 @@
   border-radius: 5px;
   font-weight: 700;
   margin-left: 1rem;
-  padding: 1rem 4rem 1rem .5rem;
+  padding: 1rem 4rem 1rem 0.5rem;
   text-shadow: 1px 1px 2px #555;
   transition: all 0.5s ease;
 }
 
-.menu__item:hover{
-    background-color: var(--azul-fraco);
-    border-radius: 5px;
-    box-shadow: 1px -1px 4px #00000050;
-    cursor: pointer;
+.menu__item:hover {
+  background-color: var(--azul-fraco);
+  border-radius: 5px;
+  box-shadow: 1px -1px 4px #00000050;
+  cursor: pointer;
 }
 
 .menu__item.doar {
@@ -43,7 +44,7 @@
   background-position: 60px center;
 }
 
-.menu__item.ajuda{
+.menu__item.ajuda {
   background-image: url(../img/charity-help-svgrepo-com.svg);
   background-repeat: no-repeat;
   background-size: 50px;

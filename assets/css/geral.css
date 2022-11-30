@@ -4,13 +4,13 @@
   --cinza: #5b6266;
   --azul-forte: #277ae1;
   --azul-fraco: #5aadf4;
-  --azul-ceu: #87CEFA;
-  --azul-super-claro: #EAF2F8;
+  --azul-ceu: #87cefa;
+  --azul-super-claro: #eaf2f8;
 }
 
 body {
   background-color: var(--gelo);
-  font-family: "Open Sans", Arial, sans-serif;
+  font-family: 'Open Sans', Arial, sans-serif;
 }
 
 button {
@@ -30,12 +30,12 @@ button:hover {
   background-color: var(--azul-fraco);
 }
 
-strong{
+strong {
   font-weight: 700;
-  
 }
 .container {
   margin: 0 auto;
   max-width: 1200px;
   width: 85%;
+  min-width: 728px;
 }

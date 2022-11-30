@@ -1,4 +1,7 @@
 $(document).ready(() => {
+  $(".txt-colar-book").focus();
+
+  ///////////////////////////////////////////////////////////////////////
   //Funçao para exibir o modal de doação/ajuda
   $(".menu__item").click(function () {
     const itemClicado = $(this).text();
@@ -12,4 +15,5 @@ $(document).ready(() => {
   $(".fechar-modal").click(function () {
     $(this).parent().parent().parent().fadeOut();
   });
+  ///////////////////////////////////////////////////////////////////////
 });

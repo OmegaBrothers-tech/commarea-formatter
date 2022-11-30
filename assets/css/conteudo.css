@@ -2,11 +2,9 @@
   line-height: 1.6;
   padding: 1rem;
 }
-
 .secoes {
   display: flex;
   flex-direction: row;
   align-items: center;
   align-items: stretch;
 }
-
