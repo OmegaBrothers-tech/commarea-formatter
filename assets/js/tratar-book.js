@@ -17,7 +17,6 @@ function desmembrarElementos(linhaBookTratada) {
 }
 
 function calcularTamanho(tam) {
-  //   console.log(tam);
   let strPosV = ' ';
   let strAntV = ' ';
 
@@ -112,81 +111,61 @@ function calcularTamanho(tam) {
       switch (strPosV) {
         case '999999999999999999':
           direita = 18;
-          //console.log("d18");
           break;
         case '99999999999999999':
           direita = 17;
-          //console.log("d17");
           break;
         case '9999999999999999':
           direita = 16;
-          //console.log("d16");
           break;
         case '999999999999999':
           direita = 15;
-          //console.log("d15");
           break;
         case '99999999999999':
           direita = 14;
-          //console.log("d14");
           break;
         case '9999999999999':
           direita = 13;
-          //console.log("d13");
           break;
         case '999999999999':
           direita = 12;
-          //console.log("d12");
           break;
         case '99999999999':
           direita = 11;
-          //console.log("d11");
           break;
         case '9999999999':
           direita = 10;
-          //console.log("d10");
           break;
         case '999999999':
           direita = 9;
-          //console.log("d 9");
           break;
         case '99999999':
           direita = 8;
-          //console.log("d 8");
           break;
         case '9999999':
           direita = 7;
-          //console.log("d 7");
           break;
         case '999999':
           direita = 6;
-          //console.log("d 6");
           break;
         case '99999':
           direita = 5;
-          //console.log("d 5");
           break;
         case '9999':
           direita = 4;
-          //console.log("d 4");
           break;
         case '999':
           direita = 3;
-          //console.log("d 3");
           break;
         case '99':
           direita = 2;
-          //console.log("d 2");
           break;
         case '9':
           direita = 1;
-          //console.log("d 1");
           break;
       }
 
-    ////console.log("Direita: " + direita);
     size = parseInt(direita) + parseInt(esquerda);
-    ////console.log("Size Final: " + size);
   } else {
     size = tam.substr(2, tam.indexOf(')') - 2);
     //eliminar zeros a esquerda
@@ -212,16 +191,15 @@ function gerarValor(pic, tamanho, value) {
   }
   return completaCampo(pic, tamanho, valueDoCampo);
 }
-
 /////Preenche o input de acordo com o tipo do campo (X, 9)/////////////////
-function completaCampo(tipo, tamanho, valor) {
-  if (tipo == 'X') {
+export function completaCampo(tipo, tamanho, valor) {
+  if (tipo === 'X') {
     var tam = tamanho - valor.length;
     while (tam > 0) {
       valor = valor + ' ';
       tam--;
     }
-  } else if (tipo == '9') {
+  } else if (tipo === '9') {
     var tam = tamanho - valor.length;
     while (tam > 0) {
       valor = '0' + valor;
@@ -237,57 +215,18 @@ export function tratarBook(dados) {
 
   const book = dados.split('.'); // cria um array com as linhas do book, as separando pelo ponto, que no COBOL indica fim de comando
 
-  book.forEach((linhaBookSemTratamento) => {
+  book.forEach((linhaBookSemTratamento, indice) => {
     linhaBookSemTratamento = $.trim(linhaBookSemTratamento).toUpperCase(); //remove espaços no inicio e no fim da string e converte todas a letras para maiusculo
 
     if (
       !linhaBookSemTratamento.startsWith('*') &&
       linhaBookSemTratamento.indexOf('PIC') !== -1
     ) {
-      bookGerado.push(desmembrarElementos(linhaBookSemTratamento));
+      let linhaTratada = desmembrarElementos(linhaBookSemTratamento);
+      linhaTratada.id = indice;
+      bookGerado.push(linhaTratada);
     }
   });
 
   return bookGerado;
-
-  for (let i in book) {
-    //criar campo
-    $('.secao-campos-gerados-detalhe').append(
-      `<div id="${contCampo}" class="campo">
-                <input type="text" class="titulo" value="Campo${contCampo}" />
-                PIC
-                <select class="select">
-                    <option></option>
-                    <option value="X"> X </option>
-                    <option value="9"> 9 </option>
-                </select>
-                (
-                <input class="tamanho" type="text" />
-                ) VALUE 
-                <input onfocus="preencher(this); $(this).select();" onblur="preencher(this)" class="book" type="text" />
-                <span class="fechar" title="Remover campo." onclick="fechar(this)">X</span>
-            </div>`
-    );
-
-    //insere a primeira parte da string no nome do campo
-    $('#' + contCampo + ' .titulo').val(str[0]);
-    //pegar o tipo
-    if (str[1].startsWith('S')) {
-      str[1] = $.trim(str[1]).replace(/S{1}/, ''); //Remove o S que indica o sinal, enquanto pesquisamos como montar a COMMAREA com sinal.
-    }
-    var pic = str[1].substr(0, 1);
-    if (pic === 'S') {
-      pic = 9;
-    }
-    $('#' + contCampo + ' .select').val(pic);
-
-    size = calcularTamanho(str[1]);
-    $('#' + contCampo + ' .tamanho').val(size);
-
-    //preencher campo
-    let value = gerarValor(pic, size, str[1]);
-    let valor = completaCampo(pic, size, value);
-    $('#' + contCampo + ' .book').val(valor);
-    contCampo++;
-  }
 }
