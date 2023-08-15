@@ -210,9 +210,8 @@ export function completaCampo(tipo, tamanho, valor) {
 }
 //tratar cada linha do book, mantendo somente as informacoes
 //necessarias para gerar os valores da massa.
-export function tratarBook(dados) {
+export function tratarBook(dados, ultimoId) {
   const bookGerado = [];
-
   const book = dados.split('.'); // cria um array com as linhas do book, as separando pelo ponto, que no COBOL indica fim de comando
 
   book.forEach((linhaBookSemTratamento, indice) => {
@@ -223,7 +222,7 @@ export function tratarBook(dados) {
       linhaBookSemTratamento.indexOf('PIC') !== -1
     ) {
       let linhaTratada = desmembrarElementos(linhaBookSemTratamento);
-      linhaTratada.id = indice;
+      linhaTratada.id = indice + ultimoId;
       bookGerado.push(linhaTratada);
     }
   });

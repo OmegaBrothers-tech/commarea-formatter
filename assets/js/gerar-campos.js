@@ -5,11 +5,11 @@ export function carregarCamposTela(bookGerado) {
     campoGerado += `<select class="select"><option></option>`;
     campoGerado +=
       campo.tipo === 'X'
-        ? `<option selected="selected" value="X"> X </option>`
+        ? `<option selected="selected" class="selected" value="X"> X </option>`
         : `<option value="X"> X </option>`;
     campoGerado +=
       campo.tipo === '9'
-        ? `<option selected="selected" value="9"> 9 </option>`
+        ? `<option selected="selected" class="selected" value="9"> 9 </option>`
         : `<option value="9"> 9 </option>`;
     campoGerado += `</select> ( <input class="tamanho" type="text" value="${campo.tamanho}" /> ) VALUE`;
     campoGerado += `<input class="book" type="text" value="${campo.valor}" />`;

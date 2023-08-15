@@ -1,5 +1,5 @@
 01 MY-RECORD. 
-        05           CLAIM-NUMBER                      PIC X(19)  value       'Diego Cardoso Moraes'       . 
+ 05           CLAIM-NUMBER                      PIC X(19)  value       'Diego Cardoso Moraes'       . 
  05 ADMISSION-DATE           PACKED-DECIMAL PIC S9(8) value      24082022. 
  05 FROM-DATE                PACKED-DECIMAL PIC S9(7). 
  05 THRU-DATE                PACKED-DECIMAL PIC S9(7). 

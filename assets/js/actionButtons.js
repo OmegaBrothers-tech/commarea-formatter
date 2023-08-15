@@ -8,11 +8,40 @@ $(document).ready(() => {
   //Botao Carregar - Gera campos automaticamente de acordo com o book
   $('.bt-carregar-book').click(function () {
     if (!$('.txt-colar-book').val()) return;
-    bookGerado = tratarBook($('.txt-colar-book').val());
+    $('.campo').remove();
 
+    bookGerado = [
+      ...bookGerado,
+      ...tratarBook($('.txt-colar-book').val(), validarUltimoId(bookGerado)),
+    ];
     carregarCamposTela(bookGerado);
     mostrarConteudo();
     scrollPage('.secao-campos-gerados');
+
+    $('.select').change(function () {
+      let novoTipo = $(this).find(':selected').val();
+      let divId = Number($(this.parentNode).attr('id'));
+      let linha = bookGerado.find((linha) => linha.id === divId);
+      let index = bookGerado.indexOf(linha);
+      bookGerado[index].tipo = novoTipo;
+      let inputValor = this.nextElementSibling.nextElementSibling;
+
+      bookGerado = preencher(inputValor, bookGerado);
+    });
+
+    $('.tamanho').focus(function () {
+      $(this).select();
+    });
+    $('.tamanho').blur(function () {
+      let novoTamanho = Number($(this).val());
+      let divId = Number($(this.parentNode).attr('id'));
+      let linha = bookGerado.find((linha) => linha.id === divId);
+      let index = bookGerado.indexOf(linha);
+      bookGerado[index].tamanho = novoTamanho;
+      let inputValor = this.nextElementSibling;
+
+      bookGerado = preencher(inputValor, bookGerado);
+    });
 
     $('.book').focus(function () {
       $(this).select();
@@ -28,29 +57,64 @@ $(document).ready(() => {
       $(this.parentNode).remove();
     });
   });
+
   //Botao Add - Adicionar campos manualmente
   $('.adicionar').click(function () {
     // validar se o campo está vazio
-    if (!$('#qtidade').val()) {
-      return;
+    if (!$('#qtidade').val()) return;
+
+    $('.campo').remove();
+    let qtidadeCampos = parseInt($('#qtidade').val());
+    let ultId = validarUltimoId(bookGerado);
+    for (let addCampo = 0; addCampo < qtidadeCampos; addCampo++) {
+      ultId++;
+      const campoBook = {};
+      campoBook.nivel = 5;
+      campoBook.nome = `Campo ${ultId}`;
+      campoBook.tipo = '9';
+      campoBook.tamanho = 1;
+      campoBook.valor = 0;
+      campoBook.id = ultId;
+      bookGerado = [...bookGerado, campoBook];
     }
 
+    carregarCamposTela(bookGerado);
     mostrarConteudo();
-
-    var i = parseInt($('#qtidade').val());
-    while (i > 0) {
-      $('.secao-campos-gerados-detalhe').append(
-        '<div id=' +
-          contCampo +
-          ' class="campo"><input type="text" class="titulo" value="Campo ' +
-          contCampo +
-          '"> PIC <select class="select"><option></option><option value="X"> X </option><option value="9"> 9 </option></select>(<input class="tamanho" type="text">) VALUE <input onfocus="preencher(this); $(this).select();" onblur="preencher(this)" class="book" type="text"><span class="fechar" title="remover" onclick="fechar(this)">X</span></div>'
-      );
-      contCampo++;
-      i--;
-    }
-
     scrollPage('.secao-campos-gerados');
+
+    $('.select').change(function () {
+      let novoTipo = $(this).find(':selected').val();
+      let divId = Number($(this.parentNode).attr('id'));
+      let linha = bookGerado.find((linha) => linha.id === divId);
+      let index = bookGerado.indexOf(linha);
+      bookGerado[index].tipo = novoTipo;
+      let inputValor = this.nextElementSibling.nextElementSibling;
+
+      bookGerado = preencher(inputValor, bookGerado);
+    });
+
+    $('.tamanho').focus(function () {
+      $(this).select();
+    });
+    $('.tamanho').blur(function () {
+      let novoTamanho = Number($(this).val());
+      let divId = Number($(this.parentNode).attr('id'));
+      let linha = bookGerado.find((linha) => linha.id === divId);
+      let index = bookGerado.indexOf(linha);
+      bookGerado[index].tamanho = novoTamanho;
+      let inputValor = this.nextElementSibling;
+
+      bookGerado = preencher(inputValor, bookGerado);
+    });
+
+    $('.book').focus(function () {
+      $(this).select();
+      bookGerado = preencher(this, bookGerado);
+    });
+
+    $('.book').blur(function () {
+      bookGerado = preencher(this, bookGerado);
+    });
   });
   //Botao Gerar Commarea - Gerar string de commarea
   $('.bt-gerar-commarea').click(function () {
@@ -79,14 +143,7 @@ $(document).ready(() => {
     $('#carac').html('0');
   });
   //Botao Reset - Reseta toda a tela, inclusive os campos carregados dinamicamente
-  $('.bt-reset').click(function () {
-    $('.txt-colar-book').val('');
-    $('#qtidade').val('');
-    $('#recebe').val('');
-    $('.campo').remove();
-    $('#carac').html('0');
-    scrollPage('.header');
-  });
+  $('.bt-reset').click(resetarTela);
   //Botao Revalidar - Verifica se a Commarea está de acordo com os campos declarados no book
   $('.revalidar-commarea').click(function () {
     var massa = $('#recebe').val();
@@ -103,6 +160,16 @@ $(document).ready(() => {
   });
 });
 
+function validarUltimoId(bookGerado) {
+  let ultimoId = -1;
+
+  if (bookGerado.length > 0) {
+    let lastElement = bookGerado[bookGerado.length - 1];
+    ultimoId = lastElement.id;
+  }
+
+  return ultimoId;
+}
 /////Exibe as seçoes da pagina onde serão carregados os campos do book.///////////
 function mostrarConteudo() {
   $('.secao-campos-gerados-detalhe').slideDown();
@@ -124,4 +191,14 @@ function scrollPage(onde) {
     },
     1000
   );
+}
+
+function resetarTela() {
+  $('.txt-colar-book').val('');
+  $('#qtidade').val('');
+  $('#recebe').val('');
+  $('.campo').remove();
+  $('#carac').html('0');
+  scrollPage('.header');
+  bookGerado = [];
 }
